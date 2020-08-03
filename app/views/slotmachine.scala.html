@@ -1,0 +1,90 @@
+@()
+
+<!DOCTYPEhtml>
+<html>
+<head>
+    <title>Slot Machine</title>
+    <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/style.css")">
+</head>
+<body>
+<header>
+
+</header>
+
+<!-- game container-->
+<div id="gameContainer" class="container">
+    <div  class="title">SLOT MACHINE</div>
+    <div id="slots">
+
+        <button id="slot1" class="reel"><img id="img1" src="assets/images/watermelon.png" class="slot"></button>
+        <button id="slot2" class="reel"><img id="img2" src="assets/images/cherry.png"class="slot"></button>
+        <button id="slot3" class="reel"><img id="img3" src="assets/images/redseven.png" class="slot"></button>
+    </div>
+
+    <div id="messageAndSpin">
+        <div id="msgBox">New Game! Bet and Spin!</div>
+        <button id="spinBtn" onclick="spin()">SPIN</button>
+    </div>
+    <div id="areas" class="container">
+        <div class="area">
+            <div id="creditArea" class="areaTitle">CREDITS</div>
+            <div id="displayCredit" class="displayNum">10</div><br>
+            <button id="addCredit" class="btn">ADD COIN</button>
+        </div>
+        <div class="area">
+            <div id="betArea" class="areaTitle">BET</div>
+            <div id="displayBet" class="displayNum">0</div>
+            <button id="reset">RESET</button><br>
+            <button id="betOne" class="btn">BET ONE</button>
+            <button id="betMax" class="btn">BET MAX</button>
+        </div>
+        <div id="menu" class="area">
+            <button id="newGame" class="menuBtn">NEW GAME</button><br>
+            <button id="statistics" class="menuBtn">STATISTICS</button><br>
+            <button id="payout" class="menuBtn">PAYOUT</button>
+        </div>
+    </div>
+</div>
+<!--end of game container-->
+
+<!--statistics Container-->
+<div id="statisticsContainer" class="container" style="display:none">
+    <div class="title">Statistics - SlotMachine</div>
+    <div id="pieChart"></div>
+    <div id="viewStatistics">
+        <span id="disSpins"> Total Spins : 0</span><br>
+        <span id="disWins"> No Of Wins : 0</span><br>
+        <span id="disLosts"> No Of Losts : 0</span><br>
+        <span id="disGain"> Gained Coins : 0</span><br>
+        <span id="disAvgPerSpin"> Average per game : 0</span><br><br><br>
+
+        <input id="playerName" class="playerInput" type="text" placeholder="Name"><br>
+        <input id="playerEmail" class="playerInput" type="text" placeholder="Email"><br>
+        <br><br>
+        <button id="saveStatistics" class="menuBtn">SAVE</button>
+        <button id="back" class="menuBtn">BACK</button>
+        <br><br>
+    </div>
+
+</div>
+<!--end of statistics Container-->
+
+
+<script src="@routes.Assets.versioned("javascripts/plotly-latest.min.js")" type="text/javascript"></script>
+<script src="@routes.Assets.versioned("javascripts/game.js")" type="text/javascript"></script>
+<script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBXis3iifg1AgUHgCGmsu8H7AEMRVgjPno",
+    authDomain: "slotmachine-e115d.firebaseapp.com",
+    databaseURL: "https://slotmachine-e115d.firebaseio.com",
+    projectId: "slotmachine-e115d",
+    storageBucket: "slotmachine-e115d.appspot.com",
+    messagingSenderId: "603617265296"
+  };
+  firebase.initializeApp(config);
+</script>
+
+</body>
+</html>
